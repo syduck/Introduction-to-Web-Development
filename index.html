@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<title>Cake Order Form</title>
+		<link rel="stylesheet" href="styleform.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato&display=swap" rel="stylesheet"> 
+
+<script type="text/javascript" src="js_validationform.js"></script>
+
+</head>
+
+<body>
+
+<form action="#">
+<div id="formcontainer">
+
+<h2>&#127856; Cake Order Form  &#127856;</h2>
+
+<p>This is a form that is intended to collect the user's cake order.  Ordering a cake has many customizable options.  Fill out the form and it will generate an order summary.</p>
+
+<!-- Table to format form -->
+
+<table>
+	<thead><td colspan="3"><h3>&#128221; General Information</h3></td></thead>
+	<tr>
+		<td class="labelcol"><label for="firstName">First name:</label>	</td>
+  		<td class="inputcol"><input type="text" id="firstName" name="firstName" value="John" onblur="validatefirstName();" required></td>
+  		<td class="feedbackcol"><span id="firstNameprompt"></span></td>
+  	</tr>
+
+  	<tr>
+		<td class="labelcol"><label for="lastName">Last name:</label></td>
+  		<td class="inputcol"><input type="text" id="lastName" name="lastName" value="Cena" onblur="validatelastName();" required></td>
+  		<td class="feedbackcol"><span id="lastNameprompt">&nbsp; </span></td>
+  	</tr>
+
+  	<tr>
+		<td class="labelcol"><label for="phone">Phone:</label></td>
+  		<td class="inputcol"><input type="text" id="phone" name="phone" onblur="validatePhone();" placeholder="xxx-xxx-xxxx" required></td>
+  		<td class="feedbackcol"><span id="phonePrompt">&nbsp; </span></td>
+  		<br><br>
+  	</tr>
+
+  	
+	<thead><td colspan="3"><h3>&#128666; Delivery Information</h3></td></thead>
+
+  	<tr>
+  		<td class="labelcol"><label for="faddress1">Address line 1:</label></td>
+  		<td class="inputcol"><input type="text" id="faddress1" name="faddress1" value="123 Cake Avenue" required></td>
+  		<td class="feedbackcol"><span id="faddress1prompt">&nbsp; </span></td>
+  	</tr>
+	
+  	<tr>
+  		<td class="labelcol"><label for="faddress2">Address line 2:</label></td>
+  		<td class="inputcol"><input type="text" id="faddress2" name="faddress2" value="Apartment 45B"></td>
+  		<td class="feedbackcol"><span id="faddress2prompt">&nbsp; </span></td>
+  	</tr>
+
+	<tr>
+  		<td class="labelcol"><label for="deliverydate">Delivery date:</label></td>
+  		<td class="inputcol"><input type="date" name="deliverydate" id="deliverydate" required></td>
+  		<td rowspan="2" class="feedbackcol"><span id="deliverydateprompt"></span></td>
+  	</tr>
+
+  	<thead><td colspan="3"><h3>&#127874; Cake Customization</h3></td></thead>
+
+  	 <tr>
+  		<td class="labelcol"><label for="cakeflavor">Flavor of cake:</label></td>
+  		<td class="inputcol" colspan="2"> 
+  			<input type="radio" name="cakeflavor" id="cakeflavor" value="vanilla" checked> Vanilla &nbsp;&nbsp;&nbsp;
+  			<input type="radio" name="cakeflavor" id="cakeflavor" value="chocolate"> Chocolate <br>
+  			<input type="radio" name="cakeflavor" id="cakeflavor"value="marble"> Marble &nbsp;&nbsp;&nbsp;
+  			<input type="radio" name="cakeflavor" id="cakeflavor"value="confetti"> Confettti <br>
+  			<input type="radio" name="cakeflavor" id="cakeflavor"value="cheesecake"> Cheesecake &nbsp;&nbsp;&nbsp;
+  			<input type="radio" name="cakeflavor" id="cakeflavor"value="seasonal"> Seasonal<br>
+  		</td>
+
+  		<td class="feedbackcol"><span id="cakeflavor"> </span></td>
+  	</tr>
+
+   	 <tr>
+  		<td class="labelcol"><label for="cakesize">Cake Size: </label></td>
+  		<td class="inputcol" colspan="2">   
+  			<input type="radio" name="cakesize" id="cakesize" value="fullsheet" checked> Full Sheet (64-96 servings) - 16” x 24” x 3” <br>
+  			<input type="radio" name="cakesize" id="cakesize" value="halfsheet"> Half Sheet (32-48 servings) - 12” x 16” x 3” <br>
+  			<input type="radio" name="cakesize" id="cakesize" value="quartersheet"> Quarter Sheet (16-24 servings) - 13” x 8” x 3” <br>
+  		</td>
+  		<td class="feedbackcol"><span id="cakesizeprompt"> </span>&nbsp;</td>
+  	</tr>
+
+   	<tr>
+  		<td class="labelcol"><label for="cakelayers">Number of cake layers: </label></td>
+  		<td class="inputcol"><input type="number" name="cakelayers" id="cakelayers" min="1" max="3" value="1" required> </td>
+  		<td class="feedbackcol"><span id="cakelayersprompt">(limit cake layers between 1 and 3)</span></td>
+  	</tr>
+
+  	<tr>
+  		<td class="labelcol"><label for="cakemsg">Custom Cake Message:</label> </td>
+  		<td class="inputcol"><input type="text" name="cakemsg" id="cakemsg" placeholder="Happy Birthday!" required> </td>
+  		<td class="feedbackcol"><span id="cakemsgprompt">&nbsp; </span></td>
+  	</tr>
+
+  	 <tr>
+  		<td class="labelcol"><label for="cakemsgcolor">Color of Frosting for Cake Message: </label> </td>
+  		<td class="inputcol"><input type="color" name="cakemsgcolor" id="cakemsgcolor" value="#ff66cc"> </td>
+  		<td class="feedbackcol"><span id="cakemsgcolorprompt">&nbsp; </span></td>
+  	</tr>
+
+  	<tr>
+  		<td colspan="1">
+  			<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Chocolate_fudge_cake.jpg" width="100px"> </td>
+  		<td colspan="1"> 
+  			<input type="button" class="button" value="Preview" onclick="previewOrder();">
+  		</td>
+  	</tr>
+
+  	<tr> 
+  		<td colspan="3">
+  			<!-- Order Preview Form shows up here when preview button is clicked on  -->
+  			<span id="orderPrompt">&nbsp;</span>
+  		</td>
+
+  </table>
+
+  <table>
+  </table>
+
+   
+</div>
+</form>
+
+</body>
+</html>
